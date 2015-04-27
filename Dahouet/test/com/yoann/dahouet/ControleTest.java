@@ -4,33 +4,53 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.yoann.dahouet.metier.Personne;
+
+
+
+import com.yoann.dahouet.metier.Licencie;
+import com.yoann.dahouet.util.Calcul;
+import com.yoann.dahouet.util.Controle;
 
 public class ControleTest {
 
 	@Test
-public void testIsValidEMail() {
+public void ctlMail() {
 		
-		assertEquals(true, Personne.ctlMail("lionel.duboeuf@gmail.com"));
-		
-		assertEquals(false, Personne.ctlMail("lionel.duboeufgmail.com"));
-		
-		assertEquals(false, Personne.ctlMail("l$gmail.com"));
-		
-		assertEquals(false, Personne.ctlMail("l$ @gmail.com"));
-		
-		assertEquals(false, Personne.ctlMail("l785@gmai@l.com"));
-		
+		assertEquals(true, Controle.ctlMail("lionel.duboeuf@gmail.com"));
+		assertEquals(false, Controle.ctlMail("l@gmail.com"));
+		assertEquals(false, Controle.ctlMail("lionel.duboeuf@g.com"));
+		assertEquals(false, Controle.ctlMail("lionel.duboeufgmail.com"));
+		assertEquals(false, Controle.ctlMail("lionel.duboeuf@gmail.c"));
+		assertEquals(false, Controle.ctlMail("lionel.duboeuf@gmailcom"));
+						
 	}
 	
 	
 	@Test
 	public void testIsDateValid(){
 		
-		assertEquals(true, AppDahouet.isValidDate("2004/01/01"));
-		assertEquals(true, AppDahouet.isValidDate("01/01/2004"));
-		assertEquals(false, AppDahouet.isValidDate("01/01948/2004"));
+		assertEquals(true, Controle.isValidDate("2004/01/01"));
+		
+		assertEquals(false, Controle.isValidDate("01/01948/2004"));
 		
 	}
+	
+	public class test_calculPoints {
 
+		 @Test
+		 public void test() {
+
+		  Licencie calcul = new Licencie(0, 200, null, 2015);
+		  
+		  assertEquals("350.0",Calcul.calculPoints(150, 2015, calcul));
+		  
+		  Licencie calcul2 = new Licencie(0, 250, null, 2014);
+		  
+		  assertEquals("Licence expirée, MAJ impossible",Calcul.calculPoints(380.5, 2014, calcul2));
+		  
+		 
+		 }
+
+		}
+	
 }

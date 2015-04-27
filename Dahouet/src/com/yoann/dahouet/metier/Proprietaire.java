@@ -4,19 +4,23 @@ package com.yoann.dahouet.metier;
 
 public class Proprietaire extends Personne{
 	
-
 	private String telephone;
 	private String adresse;
+
+	public Proprietaire(String telephone, String adresse) {
+		super();
+		this.telephone = telephone;
+		this.adresse = adresse;
+	}
+
+	
 	
 	public Proprietaire() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Proprietaire(String nom, String mail, String prenom) {
-		super(nom, mail, prenom);
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	
 
