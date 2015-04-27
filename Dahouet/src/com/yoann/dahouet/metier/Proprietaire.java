@@ -4,30 +4,18 @@ package com.yoann.dahouet.metier;
 
 public class Proprietaire extends Personne{
 	
+
 	private String telephone;
 	private String adresse;
 
-	public Proprietaire(String telephone, String adresse) {
-		super();
+	public Proprietaire(String nom, String mail, String prenom,
+			String telephone, String adresse) {
+		super(nom, mail, prenom);
 		this.telephone = telephone;
 		this.adresse = adresse;
 	}
 
 	
-	
-	public Proprietaire() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	
-
-	
-
-	
-	
-	
-
 	public String getTelephone() {
 		return telephone;
 	}
@@ -44,10 +32,14 @@ public class Proprietaire extends Personne{
 		this.adresse = adresse;
 	}
 
+
 	@Override
 	public String affiche() {
 		return "Proprietaire [telephone=" + telephone + ", adresse=" + adresse
+				+ ", nom=" + nom + ", mail=" + mail + ", prenom=" + prenom
 				+ "]";
 	}
+
+	
 
 }

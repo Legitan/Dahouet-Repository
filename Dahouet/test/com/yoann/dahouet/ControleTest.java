@@ -39,16 +39,14 @@ public void ctlMail() {
 
 		 @Test
 		 public void test() {
+			 Licencie calcul = new Licencie(null, null, null, 0, 50, null, 2015);
+			  
+			  assertEquals("200.0",Calcul.calculPoints(150, 2015, calcul));
 
-		  Licencie calcul = new Licencie(0, 200, null, 2015);
-		  
-		  assertEquals("350.0",Calcul.calculPoints(150, 2015, calcul));
-		  
-		  Licencie calcul2 = new Licencie(0, 250, null, 2014);
-		  
-		  assertEquals("Licence expirée, MAJ impossible",Calcul.calculPoints(380.5, 2014, calcul2));
-		  
-		 
+			  
+			  Licencie calcul2 = new Licencie(null, null, null, 0, 200, null, 2015);
+			  
+			  assertEquals("Licence expirée, MAJ impossible",Calcul.calculPoints(380.5, 2014, calcul2));
 		 }
 
 		}

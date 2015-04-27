@@ -5,30 +5,20 @@ import java.util.Date;
 
 
 public class Licencie extends Personne{
-
+	
 	private int numeroLicence;
 	private double pointsFFV;
 	private Date dateNaissance;
 	private int anneeLicence;
-	
-	public Licencie(int numeroLicence, double pointsFFV, Date dateNaissance,
-			int anneeLicence) {
-		super();
+
+	public Licencie(String nom, String mail, String prenom, int numeroLicence,
+			double pointsFFV, Date dateNaissance, int anneeLicence) {
+		super(nom, mail, prenom);
 		this.numeroLicence = numeroLicence;
 		this.pointsFFV = pointsFFV;
 		this.dateNaissance = dateNaissance;
 		this.anneeLicence = anneeLicence;
 	}
-
-	
-	
-	public Licencie() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	
-	
 
 	
 	
@@ -80,6 +70,20 @@ public class Licencie extends Personne{
 	public void setAnneeLicence(int anneeLicence) {
 		this.anneeLicence = anneeLicence;
 	}
+
+
+
+	@Override
+	public String affiche() {
+		return "Licencie [numeroLicence=" + numeroLicence + ", pointsFFV="
+				+ pointsFFV + ", dateNaissance=" + dateNaissance
+				+ ", anneeLicence=" + anneeLicence + ", nom=" + nom + ", mail="
+				+ mail + ", prenom=" + prenom + "]";
+	}
+
+
+
+	
 
 	
 	
