@@ -2,9 +2,12 @@ package com.yoann.dahouet.metier;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Period;
+
 
 public class Licencie extends Personne{
 	
@@ -73,7 +76,7 @@ public class Licencie extends Personne{
 				+ pointsFFV + ", dateNaissance=" + dateNaissance
 				+ ", anneeLicence=" + anneeLicence + "]";
 	}
-	
+	/*--------------F1
 	public static int calculAge(Date naiss)
 	{
 		Calendar curr = Calendar.getInstance();
@@ -87,4 +90,38 @@ public class Licencie extends Personne{
 		  }
 		return age;
 	}
+	*/
+	
+	public int calculAge(Date naissance, Date today) { 
+	    Calendar cNaissance = new GregorianCalendar(); 
+	    Calendar cToday = new GregorianCalendar(); 
+	    cNaissance.setTime(naissance); 
+	    cToday.setTime(today); 
+	 
+	    int yearDiff = cToday.get(Calendar.YEAR) - cNaissance.get(Calendar.YEAR); 
+	    cNaissance.set(Calendar.YEAR, cToday.get(Calendar.YEAR)); 
+	    if (!cNaissance.after(cToday)) { 
+	        return yearDiff; //Birthday already celebrated this year 
+	    } 
+	    else { 
+	        return Math.max(0, yearDiff-1); //Need a max to avoid -1 for baby 
+	    } 
+	    
+	}
+	/*
+	 ------------------------F2
+	
+	public int computeAge(DateTime birthDay, DateTime currentDate) { 
+		if(birthDay.isBefore(currentDate)){
+		Period period = new Period(birthDay, currentDate);
+		return period.getYears();
+		} else {
+		return 0;
+		}
+		}
+
+		public int computeAge(Date birthDay, Date currentDate ){
+		return computeAge(new DateTime(birthDay), new DateTime(currentDate));
+		}
+		 */
 }
