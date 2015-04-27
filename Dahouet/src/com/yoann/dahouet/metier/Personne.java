@@ -44,11 +44,13 @@ public class Personne {
 		this.prenom = prenom;
 	}
 
-	public String affiche() {
+	public String toString() {
 		return "Personne [nom=" + nom + ", mail=" + mail + ", prenom=" + prenom
 				+ "]";
 	}
 
-	
+	public void affiche(){
+		System.out.println("Personne: " + super.toString());
+	}
 	
 }

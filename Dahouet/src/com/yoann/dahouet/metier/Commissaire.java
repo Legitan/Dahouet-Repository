@@ -1,25 +1,15 @@
 package com.yoann.dahouet.metier;
 
 public class Commissaire extends Personne{
-
+	
 	private String commite;
-	
-	public Commissaire() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
-	public Commissaire(String nom, String mail, String prenom) {
+	public Commissaire(String nom, String mail, String prenom, String commite) {
 		super(nom, mail, prenom);
-		// TODO Auto-generated constructor stub
+		this.commite = commite;
 	}
 
-	
-	
-	
-	
-	
-	
+		
 
 	public String getCommite() {
 		return commite;
@@ -30,7 +20,10 @@ public class Commissaire extends Personne{
 	}
 
 	@Override
-	public String affiche() {
+	public String toString() {
 		return "Commissaire [commite=" + commite + "]";
+	}
+	public void affiche(){
+		System.out.println("Commissaire: " + super.toString());
 	}
 }

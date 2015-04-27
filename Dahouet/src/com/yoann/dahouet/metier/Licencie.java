@@ -74,13 +74,16 @@ public class Licencie extends Personne{
 
 
 	@Override
-	public String affiche() {
+	public String toString() {
 		return "Licencie [numeroLicence=" + numeroLicence + ", pointsFFV="
 				+ pointsFFV + ", dateNaissance=" + dateNaissance
 				+ ", anneeLicence=" + anneeLicence + ", nom=" + nom + ", mail="
 				+ mail + ", prenom=" + prenom + "]";
 	}
 
+	public void affiche(){
+		System.out.println("Licencie: " + super.toString());
+	}
 
 
 	

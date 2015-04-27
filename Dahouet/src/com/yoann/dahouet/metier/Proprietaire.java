@@ -33,13 +33,18 @@ public class Proprietaire extends Personne{
 	}
 
 
-	@Override
-	public String affiche() {
-		return "Proprietaire [telephone=" + telephone + ", adresse=" + adresse
-				+ ", nom=" + nom + ", mail=" + mail + ", prenom=" + prenom
-				+ "]";
-	}
-
+	
 	
 
+
+
+@Override
+public String toString() {
+	return "Proprietaire [telephone=" + telephone + ", adresse=" + adresse
+			+ ", nom=" + nom + ", mail=" + mail + ", prenom=" + prenom + "]";
+}
+
+public void affiche(){
+	System.out.println("Propriétaire: " + super.toString());
+}
 }
