@@ -21,9 +21,15 @@ public class Commissaire extends Personne{
 
 	@Override
 	public String toString() {
-		return "Commissaire [commite=" + commite + "]";
+		return "Commissaire [commite=" + commite + ", nom=" + nom + ", mail="
+				+ mail + ", prenom=" + prenom + "]";
 	}
+	
 	public void affiche(){
 		System.out.println("Commissaire: " + super.toString());
 	}
+
+
+
+	
 }

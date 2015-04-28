@@ -8,6 +8,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
+
+
+
+
+import com.yoann.dahouet.metier.Commissaire;
+import com.yoann.dahouet.metier.Licencie;
+import com.yoann.dahouet.metier.Personne;
+import com.yoann.dahouet.metier.Proprietaire;
 import com.yoann.dahouet.util.Calcul;
 import com.yoann.dahouet.util.Controle;
 import com.yoann.dahouet.util.Lire;
@@ -40,6 +48,25 @@ public class AppDahouet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
+	//-----------------------------------------------------------------------------
+		Personne p = new Personne("salaun", "yoannsalaun@yahoo.fr", "yoann");
+		Personne.affiche(p);
+		
+		String datnais ="1970/06/14";
+		SimpleDateFormat datnais2 = new SimpleDateFormat("yyyy/MM/dd");
+		try {
+			Date datnais3 = datnais2.parse(datnais);			
+			Licencie lic = new Licencie("gabardos", "nathalie.gabardos@hotmail.com", "nathalie", 120, 50, datnais3, 2015);
+			Licencie.affiche(lic);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+				
+		Proprietaire prop = new Proprietaire("esbens","maxime.esbens@gmail.com", "maxime", "0685486912", "4 rue du gland 58947 la motte verte"); 
+		Proprietaire.affiche(prop);
+		
+		Commissaire com = new Commissaire("zoulagi", "dindon@chonchon.com", "françois", "bretagne");
+		Commissaire.affiche(com);
 	}
 }

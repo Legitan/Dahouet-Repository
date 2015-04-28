@@ -1,6 +1,7 @@
 package com.yoann.dahouet.metier;
 
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -75,8 +76,10 @@ public class Licencie extends Personne{
 
 	@Override
 	public String toString() {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		
 		return "Licencie [numeroLicence=" + numeroLicence + ", pointsFFV="
-				+ pointsFFV + ", dateNaissance=" + dateNaissance
+				+ pointsFFV + ", dateNaissance=" + dateFormat.format(dateNaissance)
 				+ ", anneeLicence=" + anneeLicence + ", nom=" + nom + ", mail="
 				+ mail + ", prenom=" + prenom + "]";
 	}

@@ -49,8 +49,11 @@ public class Personne {
 				+ "]";
 	}
 
-	public void affiche(){
-		System.out.println("Personne: " + super.toString());
+
+	
+	
+	public static void affiche(Personne p){
+		System.out.println("Personne: " + p.toString());
 	}
 	
 }
