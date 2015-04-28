@@ -6,8 +6,7 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
+
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -60,8 +59,8 @@ public class UIVoilier extends JFrame {
 		JLabel lblSrie = new JLabel("S\u00E9rie");
 		panel.add(lblSrie, "cell 0 4,alignx trailing");
 		
-		JComboBox comboBox_2 = new JComboBox();
-		panel.add(comboBox_2, "cell 1 4 5 1,growx");
+		JComboBox serie = new JComboBox();
+		panel.add(serie, "cell 1 4 5 1,growx");
 		
 		JButton btnOk = new JButton("OK");
 		panel.add(btnOk, "flowx,cell 5 8,alignx right");
