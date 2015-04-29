@@ -3,17 +3,23 @@ package com.yoann.dahouet.ui;
 import java.awt.BorderLayout;
 
 
+
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import net.miginfocom.swing.MigLayout;
+
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JTextField;
+
 
 public class UIVoilier extends JFrame {
 
@@ -47,20 +53,21 @@ public class UIVoilier extends JFrame {
 		JLabel lblPropritaire = new JLabel("Propri\u00E9taire");
 		panel.add(lblPropritaire, "cell 0 2,alignx trailing");
 		
-		JComboBox comboBox = new JComboBox();
-		panel.add(comboBox, "cell 1 2 5 1,growx");
+		JComboBox proprietaire = new JComboBox();
+		panel.add(proprietaire, "cell 1 2 5 1,growx");
 		
 		JLabel lblClasse = new JLabel("Classe");
 		panel.add(lblClasse, "cell 0 3,alignx trailing");
 		
-		JComboBox comboBox_1 = new JComboBox();
-		panel.add(comboBox_1, "cell 1 3 5 1,growx");
+		JComboBox classe = new JComboBox();
+		panel.add(classe, "cell 1 3 5 1,growx");
 		
 		JLabel lblSrie = new JLabel("S\u00E9rie");
 		panel.add(lblSrie, "cell 0 4,alignx trailing");
 		
 		JComboBox serie = new JComboBox();
 		panel.add(serie, "cell 1 4 5 1,growx");
+		
 		
 		JButton btnOk = new JButton("OK");
 		panel.add(btnOk, "flowx,cell 5 8,alignx right");

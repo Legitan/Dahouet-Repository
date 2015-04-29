@@ -7,18 +7,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.yoann.dahouet.metier.Classe;
+
 
 
 
 public class ClasseDAO {
 
-	public static List<Classe> getListClasse(){
+	public static List getListClasse(){
 		 
 		 Connection c = Connect.cConnect();
 		 
 		 
-		 List<Classe> cl = new ArrayList<>();
+		 List cl = new ArrayList<>();
       
       Statement stm;
       String nomclasse;

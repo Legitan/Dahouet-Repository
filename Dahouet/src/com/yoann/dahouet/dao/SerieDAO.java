@@ -13,15 +13,15 @@ import java.util.List;
 
 
 
-import com.yoann.dahouet.metier.Serie;
+
 
 public class SerieDAO {
 
-	public static List<Serie> getlistSerie()
+	public static List getlistSerie()
 	 {  
 	  Connection c = Connect.cConnect();
 	   
-	  List<Serie> ss = new ArrayList<>();
+	  List ss = new ArrayList<>();
 	       
 	        Statement stm;
 	        
