@@ -65,18 +65,42 @@ public class UIVoilier extends JFrame {
 		JLabel lblClasse = new JLabel("Classe");
 		panel.add(lblClasse, "cell 0 3,alignx trailing");
 		
+		// cbox serie  ---------------------------------------------------------
+		 
+				cbserie = new JComboBox<String>();
+				cbserie.addActionListener(new ActionListener() {
+				   
+				   public void actionPerformed(ActionEvent e) {
+					   cbserie.getSelectedItem().toString();
+				   
+					   cbclasse.removeAllItems();
+				    String nomSerie = cbserie.getSelectedItem().toString();
+				    
+				   
+				    ClasseDAO.remplirListClasse(nomSerie);
+				   }
+				  });
+				  
+				SerieDAO.remplirlistSerie();		
+				panel.add(cbserie, "cell 1 4 5 1,growx");
+		// cbox classe ------------------------------------------------
+		cbclasse.removeAllItems();
+		cbclasse = new JComboBox<String>();
+		 
+		cbserie.getSelectedItem().toString();
+		  String nomSerie = cbserie.getSelectedItem().toString();
+		 
 		
-		ClasseDAO.remplirListClasse();
+		  
+		ClasseDAO.remplirListClasse(nomSerie);
 		panel.add(cbclasse, "cell 1 3 5 1,growx");
 		
 		JLabel lblSrie = new JLabel("S\u00E9rie");
 		panel.add(lblSrie, "cell 0 4,alignx trailing");
 		
 		
-		SerieDAO.remplirlistSerie();		
-		panel.add(cbserie, "cell 1 4 5 1,growx");
 		
-		
+	//--------------------------------------------------------------------------------	
 		JButton btnOk = new JButton("OK");
 		panel.add(btnOk, "flowx,cell 5 8,alignx right");
 		

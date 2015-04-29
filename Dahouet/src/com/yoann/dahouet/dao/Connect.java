@@ -8,10 +8,7 @@ public class Connect {
 	private static Connection conn =null;
 
 	 final static String URL = "jdbc:mysql://localhost/dahouet?noAccessToProcedureBodies=true";
-   /**
-    * 
-    * @return RunTimeException() if any pb
-    */
+   
 public static Connection  cConnect () 
 {
     if (conn==null) {

@@ -16,7 +16,7 @@ import com.yoann.dahouet.ui.UIVoilier;
 public class ClasseDAO {
 
 	@SuppressWarnings("unchecked")
-	public static void remplirListClasse(){
+	public static void remplirListClasse(String nomSerie){
 		 
 		 Connection c = Connect.cConnect();
 		 
@@ -42,10 +42,11 @@ public class ClasseDAO {
 		return cl;     
 	 }
 	 */
-	  String req= "select Nom_classe from classe ";
-	  
+	  String req= "select classe.Nom_classe from classe " +
+    "inner join serie on classe.Num_serie = serie.Num_serie "+
+    " where serie.Nom_serie = " + "'" + nomSerie + "'"+ ";";
 			Statement stmt;
-		if (UIVoilier.cbserie.equals("Habitables")){
+		
 		    try {
 	stmt = c.createStatement();
 	ResultSet res = stmt.executeQuery(req);
@@ -57,6 +58,5 @@ public class ClasseDAO {
 	} catch (SQLException e) {
 	e.printStackTrace();
 		}
-		}    
 	}
 }
