@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 
 
 
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -20,11 +21,16 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.JTextField;
 
+import com.yoann.dahouet.dao.ClasseDAO;
+import com.yoann.dahouet.dao.SerieDAO;
+
 
 public class UIVoilier extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	public static JComboBox cbserie = new JComboBox();
+	public static JComboBox cbclasse = new JComboBox();
 
 	/**
 	 * 
@@ -59,14 +65,16 @@ public class UIVoilier extends JFrame {
 		JLabel lblClasse = new JLabel("Classe");
 		panel.add(lblClasse, "cell 0 3,alignx trailing");
 		
-		JComboBox classe = new JComboBox();
-		panel.add(classe, "cell 1 3 5 1,growx");
+		
+		ClasseDAO.remplirListClasse();
+		panel.add(cbclasse, "cell 1 3 5 1,growx");
 		
 		JLabel lblSrie = new JLabel("S\u00E9rie");
 		panel.add(lblSrie, "cell 0 4,alignx trailing");
 		
-		JComboBox serie = new JComboBox();
-		panel.add(serie, "cell 1 4 5 1,growx");
+		
+		SerieDAO.remplirlistSerie();		
+		panel.add(cbserie, "cell 1 4 5 1,growx");
 		
 		
 		JButton btnOk = new JButton("OK");

@@ -26,7 +26,7 @@ public class AppDahouet1 {
 				}
 			}
 		});
-		ClasseDAO.getListClasse();
+		
 	}
 
 	/**
