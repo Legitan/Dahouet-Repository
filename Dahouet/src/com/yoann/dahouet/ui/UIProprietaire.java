@@ -102,12 +102,15 @@ public class UIProprietaire extends JDialog {
 			}				
 		});
 		{
-			txtNomDuPropritaire = new JTextField();
+		
 			txtNomDuPropritaire.setHorizontalAlignment(SwingConstants.CENTER);
 			txtNomDuPropritaire.setText("Nom du propri\u00E9taire");
 			contentPanel.add(txtNomDuPropritaire, "cell 5 3,growx");
 			txtNomDuPropritaire.setColumns(10);
 		}
+		
+		//coordonnees-------------------------------------------------------------------------
+		
 		{
 			JLabel lblCoordonnes = new JLabel("Coordonn\u00E9es");
 			contentPanel.add(lblCoordonnes, "cell 4 4,alignx trailing");
