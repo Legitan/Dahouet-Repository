@@ -7,33 +7,59 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class ProprietaireDAO {
 
-	public static List getListClasse(){
+	public static List<String> getListProprietaire()
+	 {  
+		  Connection c = Connect.cConnect();
+		 
+		  List<String> prop = new ArrayList<>();	       
+		        Statement stm;	        
+		        String nomprop;	        
+		  try  {
+		   stm = c.createStatement();	   
+		   String sql = "select Nom_proprietaire from proprietaire ";
+		         ResultSet rs = stm.executeQuery(sql);
+		         while (rs.next())
+		         {
+		        	 nomprop = rs.getString("Nom_proprietaire");
+		          prop.add(nomprop);
+		         }
+		         rs.close();  	   
+		  } 
+		  catch (SQLException e) 
+		  {
+			  e.printStackTrace();
+		   throw new RuntimeException();
+		  }	  
+		  return prop;
+		   
+		  
+		  }
+	/*
+	@SuppressWarnings("unchecked")
+	public static void remplirListProprietaire(){
 		 
 		 Connection c = Connect.cConnect();
 		 
-		 
-		 List cl = new ArrayList<>();
-      
-      Statement stm;
-		try {
-			stm = c.createStatement();
-			
-			String sql = "select Nom_classe from classe ";
-	        ResultSet rs = stm.executeQuery(sql);
-	      
-	       
-	        rs.close();
-			
-			
-		} catch (SQLException e) {
-			throw new RuntimeException();
+		 String req= "select Nom_proprietaire from proprietaire ";
+			Statement stmt;
+		
+		    try {
+	stmt = c.createStatement();
+	ResultSet res = stmt.executeQuery(req);
+	while(res.next()){
+		UIVoilier.cbproprietaire.addItem(res.getString("Nom_proprietaire"));     
+
 		}
-		
-		
-		return cl;
+		res.close();
+	} catch (SQLException e) {
+	e.printStackTrace();
+		}
+		 
      
 		 
 	 }
+	 */
 }

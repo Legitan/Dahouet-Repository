@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.yoann.dahouet.ui.UIVoilier;
+
 
 
 
@@ -15,24 +15,27 @@ import com.yoann.dahouet.ui.UIVoilier;
 
 public class ClasseDAO {
 
-	@SuppressWarnings("unchecked")
-	public static void remplirListClasse(String nomSerie){
+	
+	public static List<String> getListClasse(String nomSerie){
 		 
 		 Connection c = Connect.cConnect();
 		 
-		 /*
-		 List cl = new ArrayList<>();      
+		
+		 List<String> cl = new ArrayList<>();      
       Statement stm;
       String nomclasse;
+      
 		try {
 			stm = c.createStatement();
 			
-			String sql = "select Nom_classe from classe ";
+			String sql =  "select classe.Nom_classe from classe " +
+				    "inner join serie on classe.Num_serie = serie.Num_serie "+
+				    " where serie.Nom_serie = " + "'" + nomSerie + "'"+ ";";
 	        ResultSet rs = stm.executeQuery(sql);	      
 	        while (rs.next())
 	         {
 	          nomclasse = rs.getString("Nom_classe");
-	          System.out.println(nomclasse);       
+	          cl.add(nomclasse);
 	         }
 	         rs.close();		
 		} catch (SQLException e) {
@@ -41,7 +44,7 @@ public class ClasseDAO {
 		}	
 		return cl;     
 	 }
-	 */
+	 /*
 	  String req= "select classe.Nom_classe from classe " +
     "inner join serie on classe.Num_serie = serie.Num_serie "+
     " where serie.Nom_serie = " + "'" + nomSerie + "'"+ ";";
@@ -59,4 +62,6 @@ public class ClasseDAO {
 	e.printStackTrace();
 		}
 	}
+	*/
+	
 }
