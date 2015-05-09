@@ -4,8 +4,6 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-import com.yoann.dahouet.dao.ClasseDAO;
-import com.yoann.dahouet.dao.VoilierDAO;
 import com.yoann.dahouet.ui.UIVoilier;
 
 public class AppDahouet1 {

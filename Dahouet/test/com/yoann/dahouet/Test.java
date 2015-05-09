@@ -4,8 +4,9 @@ package com.yoann.dahouet;
 import com.yoann.dahouet.controller.DahouetController;
 import com.yoann.dahouet.dao.ClasseDAO;
 import com.yoann.dahouet.dao.ClubDAO;
-import com.yoann.dahouet.dao.ProprietaireDAO;
+import com.yoann.dahouet.dao.NeoProprietaireDAO;
 import com.yoann.dahouet.dao.SerieDAO;
+import com.yoann.dahouet.metier.NeoProprietaire;
 
 
 public class Test {
@@ -17,6 +18,8 @@ public class Test {
 		//DahouetController.remplirListSerie();
 		//ClasseDAO.getListClasse(String nomSerie);
 		//ClubDAO.getListClub();
+		//DahouetController.createProprio("CLUB MICKEY","Miguel","Vannes");
+		ClubDAO.getNumClub("CLUB MICKEY");
 	}
 
 	

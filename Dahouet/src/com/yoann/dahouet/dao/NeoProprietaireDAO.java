@@ -1,6 +1,7 @@
 package com.yoann.dahouet.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -8,7 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ProprietaireDAO {
+
+
+
+
+
+
+import com.yoann.dahouet.metier.NeoProprietaire;
+
+
+
+public class NeoProprietaireDAO {
 
 	public static List<String> getListProprietaire()
 	 {  
@@ -57,9 +68,25 @@ public class ProprietaireDAO {
 	} catch (SQLException e) {
 	e.printStackTrace();
 		}
-		 
-     
-		 
 	 }
 	 */
+	public static void createProprio(NeoProprietaire p) throws Exception {
+		 
+		 Connection c = Connect.cConnect();
+		 PreparedStatement stm;
+		try {
+			stm = c.prepareStatement("INSERT INTO proprietaire (Num_club, Nom_proprietaire, Coordonnees_proprietaire) VALUES (?,?,?)");
+			stm.setInt(1, p.getClub().getNumClub());
+			stm.setString(2, p.getNomProprio());
+			stm.setString(3, p.getCoordonneeProprio());
+			
+			stm.execute();
+			
+			stm.close();
+			
+		} catch (SQLException e) {
+			throw new RuntimeException();
+		}	
+	 }
+	 
 }
