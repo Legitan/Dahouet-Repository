@@ -62,7 +62,7 @@ public class UIProprietaire extends JDialog {
 			public void actionPerformed(ActionEvent arg0) {
 					
 					try {
-						DahouetController.save();
+						DahouetController.saveProprio();
 					} catch (Exception e) {
 						 e.printStackTrace();
 						throw new RuntimeException();

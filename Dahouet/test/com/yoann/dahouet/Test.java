@@ -19,6 +19,7 @@ public class Test {
 		//ClasseDAO.getListClasse(String nomSerie);
 		//ClubDAO.getListClub();
 		//ClubDAO.getClub("CLUB MICKEY");
+		//NeoProprietaireDAO.getNumProprio("Francois");
 	}
 
 	

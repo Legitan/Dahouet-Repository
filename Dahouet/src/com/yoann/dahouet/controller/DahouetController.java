@@ -7,12 +7,18 @@ import java.util.List;
 
 
 
+
+
+
+
 import com.yoann.dahouet.dao.ClasseDAO;
 import com.yoann.dahouet.dao.ClubDAO;
 import com.yoann.dahouet.dao.NeoProprietaireDAO;
 import com.yoann.dahouet.dao.SerieDAO;
+import com.yoann.dahouet.dao.VoilierDAO;
 import com.yoann.dahouet.metier.Club;
 import com.yoann.dahouet.metier.NeoProprietaire;
+import com.yoann.dahouet.metier.Voilier;
 import com.yoann.dahouet.ui.UIProprietaire;
 import com.yoann.dahouet.ui.UIVoilier;
 
@@ -73,7 +79,7 @@ public class DahouetController {
 	}
 	
 	
-	public static void save() throws Exception{
+	public static void saveProprio() throws Exception{
 		
 		String nomClub=UIProprietaire.cbclub.getSelectedItem().toString();
 		Club club= new Club(0, null);
@@ -83,5 +89,16 @@ public class DahouetController {
 		NeoProprietaireDAO.createProprio(p,numClub);
 		}
 
+	public static void saveVoilier() throws Exception{
+		
+		String nomProprio= UIVoilier.cbproprietaire.getSelectedItem().toString();
+		int numProprio = NeoProprietaireDAO.getNumProprio(nomProprio);
+		String nomClasse = UIVoilier.cbclasse.getSelectedItem().toString();
+		String nomVoilier = UIVoilier.txtNomDuVoilier.getText();
+		
+		
+		Voilier v = new Voilier(numProprio, nomClasse,  nomVoilier);
+		VoilierDAO.createVoilier(v);
+	}
 	
 }

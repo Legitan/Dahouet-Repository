@@ -8,13 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-
-
-
-
-
 import com.yoann.dahouet.metier.NeoProprietaire;
 
 
@@ -90,5 +83,26 @@ public class NeoProprietaireDAO {
 			throw new RuntimeException();
 		}	
 	 }
-	 
+	public static int getNumProprio(String nomProprio){
+		
+		int numProprio = 0;
+		
+		 Connection c = Connect.cConnect();
+		  Statement stm;
+			try {
+				stm = c.createStatement();
+				String sql = "select Num_proprietaire from proprietaire  WHERE Nom_proprietaire=" + "'"+ nomProprio+"'"+";";
+		        ResultSet rs = stm.executeQuery(sql);
+		        
+		        rs.next();
+		        numProprio=rs.getInt("Num_proprietaire");
+		        rs.close();
+			} catch (SQLException e) {
+				 e.printStackTrace();
+				throw new RuntimeException();
+			}
+		return numProprio;
+	}
+	
+	
 }

@@ -33,7 +33,7 @@ public class UIVoilier extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txtNomDuVoilier;
+	public static JTextField txtNomDuVoilier;
 	public static JComboBox<String> cbserie = new JComboBox<>();
 	public static JComboBox<String> cbclasse = new JComboBox<>();
 	public static JComboBox<String> cbproprietaire = new JComboBox<>();
@@ -52,6 +52,17 @@ public class UIVoilier extends JFrame {
 		setContentPane(contentPane);
 		
 		final JButton btnOk = new JButton("Enregistrer");
+		btnOk.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					DahouetController.saveVoilier();
+				} catch (Exception e) {
+					 e.printStackTrace();
+					throw new RuntimeException();
+				}
+				
+			}
+		});
 		btnOk.setEnabled(false);
 		
 		JPanel panel = new JPanel();
