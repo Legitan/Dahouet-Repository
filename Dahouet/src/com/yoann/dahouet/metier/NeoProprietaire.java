@@ -6,15 +6,16 @@ public class NeoProprietaire {
 	Club club;
 	String nomProprio;
 	String coordonneeProprio;
-
-		public NeoProprietaire(int numProprio, Club club, String nomProprio,
-			String coordonneeProprio) {
+	
+	public NeoProprietaire(Club club, String nomProprio, String coordonneeProprio) {
 		super();
-		this.numProprio = numProprio;
 		this.club = club;
 		this.nomProprio = nomProprio;
 		this.coordonneeProprio = coordonneeProprio;
 	}
+
+
+		
 		
 		public int getNumProprio() {
 			return numProprio;

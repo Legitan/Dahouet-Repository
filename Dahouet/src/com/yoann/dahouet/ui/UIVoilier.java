@@ -108,7 +108,13 @@ public class UIVoilier extends JFrame {
 		JButton btnNewButton = new JButton(" New propri\u00E9taire");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JDialog UIProprietaire  = new UIProprietaire();
+				JDialog UIProprietaire = null;
+				try {
+					UIProprietaire = new UIProprietaire();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				UIProprietaire.setVisible(true);
 			}
 		});

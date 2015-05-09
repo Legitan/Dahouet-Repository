@@ -5,10 +5,13 @@ import java.util.List;
 
 
 
+
+
 import com.yoann.dahouet.dao.ClasseDAO;
 import com.yoann.dahouet.dao.ClubDAO;
 import com.yoann.dahouet.dao.NeoProprietaireDAO;
 import com.yoann.dahouet.dao.SerieDAO;
+import com.yoann.dahouet.metier.Club;
 import com.yoann.dahouet.metier.NeoProprietaire;
 import com.yoann.dahouet.ui.UIProprietaire;
 import com.yoann.dahouet.ui.UIVoilier;
@@ -22,7 +25,6 @@ public class DahouetController {
 			List<String> listeseries = SerieDAO.getListSerie();
 			for (String nomSerie: listeseries)
 			UIVoilier.cbserie.addItem(nomSerie);
-			System.out.print(SerieDAO.getListSerie());
 		}
 
 		catch (Exception e) {
@@ -36,7 +38,6 @@ public class DahouetController {
 			List<String> classes = ClasseDAO.getListClasse(nomSerie);
 			for (String nomClasse: classes)
 			UIVoilier.cbclasse.addItem(nomClasse);
-			System.out.print(ClasseDAO.getListClasse(nomSerie));
 		}
 
 		catch (Exception e) {
@@ -50,7 +51,6 @@ public class DahouetController {
 			List<String> listeproprios = NeoProprietaireDAO.getListProprietaire();
 			for (String nomproprio: listeproprios)
 			UIVoilier.cbproprietaire.addItem(nomproprio);
-			System.out.print(NeoProprietaireDAO.getListProprietaire());
 		}
 
 		catch (Exception e) {
@@ -72,15 +72,16 @@ public class DahouetController {
 		}
 	}
 	
-	public void createProprio(NeoProprietaire p) {
-		try {
-			NeoProprietaireDAO.createProprio(p);
-			
-		} catch (Exception e) {
-			throw new RuntimeException();
+	
+	public static void save() throws Exception{
+		
+		String nomClub=UIProprietaire.cbclub.getSelectedItem().toString();
+		Club club= new Club(0, null);
+		club=ClubDAO.getClub(nomClub);
+		int numClub = club.getNumClub();
+		NeoProprietaire p = new NeoProprietaire(club,UIProprietaire.txtNomDuPropritaire.getText() ,UIProprietaire.txtCoordonnesDuPropritaire.getText()) ;
+		NeoProprietaireDAO.createProprio(p,numClub);
 		}
-		
-		
-	}
+
 	
 }

@@ -19,13 +19,9 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
 import javax.swing.JComboBox;
-
 import com.yoann.dahouet.controller.DahouetController;
-
 import javax.swing.SwingConstants;
-
 public class UIProprietaire extends JDialog {
 
 	/**
@@ -33,8 +29,8 @@ public class UIProprietaire extends JDialog {
 	 */
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
-	private JTextField txtNomDuPropritaire;
-	private JTextField txtCoordonnesDuPropritaire;
+	public static JTextField txtNomDuPropritaire;
+	public static JTextField txtCoordonnesDuPropritaire;
 	public static JComboBox<String> cbclub = new JComboBox<>();
 	/**
 	 * Launch the application.
@@ -51,8 +47,9 @@ public class UIProprietaire extends JDialog {
 
 	/**
 	 * Create the dialog.
+	 * 
 	 */
-	public UIProprietaire() {
+	public UIProprietaire() throws Exception {
 		this.setTitle("Enregistrement d'un PROPRIETAIRE");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
@@ -63,6 +60,13 @@ public class UIProprietaire extends JDialog {
 		final JButton okButton = new JButton("Enregistrer");
 		okButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+					
+					try {
+						DahouetController.save();
+					} catch (Exception e) {
+						 e.printStackTrace();
+						throw new RuntimeException();
+					}
 			}
 		});
 		okButton.setEnabled(false);
@@ -78,9 +82,10 @@ public class UIProprietaire extends JDialog {
 		{
 			DahouetController.remplirListClub();
 			contentPanel.add(cbclub, "cell 5 2,growx");
-			
 		}
-		String nomClub=UIProprietaire.cbclub.getSelectedItem().toString();
+		
+		
+		
 		
 		//nom du proprietaire------------------------------------------------------
 		{
@@ -184,4 +189,6 @@ public class UIProprietaire extends JDialog {
 		}
 	}
 
+	
+	
 }

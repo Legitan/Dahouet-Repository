@@ -70,21 +70,23 @@ public class NeoProprietaireDAO {
 		}
 	 }
 	 */
-	public static void createProprio(NeoProprietaire p) throws Exception {
+	public static void createProprio(NeoProprietaire p, int numClub) throws Exception {
 		 
 		 Connection c = Connect.cConnect();
 		 PreparedStatement stm;
 		try {
 			stm = c.prepareStatement("INSERT INTO proprietaire (Num_club, Nom_proprietaire, Coordonnees_proprietaire) VALUES (?,?,?)");
-			stm.setInt(1, p.getClub().getNumClub());
+			
+			
+			stm.setInt(1, numClub);
 			stm.setString(2, p.getNomProprio());
 			stm.setString(3, p.getCoordonneeProprio());
-			
 			stm.execute();
 			
 			stm.close();
 			
 		} catch (SQLException e) {
+			e.printStackTrace();
 			throw new RuntimeException();
 		}	
 	 }

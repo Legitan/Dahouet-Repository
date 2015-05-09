@@ -18,8 +18,7 @@ public class Test {
 		//DahouetController.remplirListSerie();
 		//ClasseDAO.getListClasse(String nomSerie);
 		//ClubDAO.getListClub();
-		//DahouetController.createProprio("CLUB MICKEY","Miguel","Vannes");
-		ClubDAO.getNumClub("CLUB MICKEY");
+		//ClubDAO.getClub("CLUB MICKEY");
 	}
 
 	

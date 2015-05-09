@@ -40,7 +40,7 @@ public class ClubDAO {
 		  
 		  }
 	
-	public static Club getNumClub(String nomClub){
+	public static Club getClub(String nomClub){
 			Club cl = null;
 			int numClub = 0;
 			
@@ -53,9 +53,6 @@ public class ClubDAO {
 			        
 			        rs.next();
 			        	numClub=rs.getInt("Num_club");
-			        	
-			        	System.out.print(numClub);
-			        
 			        rs.close();
 				} catch (SQLException e) {
 					 e.printStackTrace();
