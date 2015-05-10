@@ -19,8 +19,13 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+
 import javax.swing.JComboBox;
+
+
+
 import com.yoann.dahouet.controller.DahouetController;
+
 import javax.swing.SwingConstants;
 public class UIProprietaire extends JDialog {
 
@@ -67,6 +72,9 @@ public class UIProprietaire extends JDialog {
 						 e.printStackTrace();
 						throw new RuntimeException();
 					}
+					ConfirmSav dialog = new ConfirmSav();
+					dialog.setVisible(true);
+					dispose();
 			}
 		});
 		okButton.setEnabled(false);

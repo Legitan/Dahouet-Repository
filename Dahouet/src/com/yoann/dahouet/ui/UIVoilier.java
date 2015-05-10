@@ -60,7 +60,9 @@ public class UIVoilier extends JFrame {
 					 e.printStackTrace();
 					throw new RuntimeException();
 				}
-				
+				ConfirmSav dialog = new ConfirmSav();
+				dialog.setVisible(true);
+				dispose();
 			}
 		});
 		btnOk.setEnabled(false);
@@ -127,6 +129,7 @@ public class UIVoilier extends JFrame {
 					e.printStackTrace();
 				}
 				UIProprietaire.setVisible(true);
+				dispose();
 			}
 		});
 		panel.add(btnNewButton, "cell 5 2,alignx right");
