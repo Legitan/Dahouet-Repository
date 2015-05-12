@@ -31,7 +31,7 @@ public class AppDahouet {
 	boolean valid = Controle.ctlMail(email);
 	if ( valid == false)
 	{
-		System.out.print ("Email invalide");
+		System.out.println ("Email invalide");
 	}
 	
 	//---------------------------------------------------------------------------
@@ -43,7 +43,7 @@ public class AppDahouet {
 		try {
 			Date d = naiss.parse(naissance);
 			int age = Calcul.calculAge(d);
-			System.out.println(age);
+			System.out.println(age); 
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
